@@ -3,6 +3,7 @@ import "./App.css";
 import Feed from "./Feed";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Widgets from "./Widgets";
 
 function App() {
   return (
@@ -10,9 +11,8 @@ function App() {
       <Navbar />
       <div className="app_body">
         <Sidebar />
-        {/* FB Feed */}
         <Feed />
-        {/* Widgets */}
+        <Widgets />
       </div>
     </div>
   );
