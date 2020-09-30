@@ -1,6 +1,8 @@
 import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, PhotoLibrary, Videocam } from "@material-ui/icons";
 import React, { useState } from "react";
+import db from "./firebase";
+import firebase from "firebase";
 import "./Post.css";
 import { useStateValue } from "./StateProvider";
 
@@ -12,6 +14,14 @@ function Post() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    db.collection("posts").add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: imageUrl,
+    });
 
     setInput("");
     setImageUrl("");
