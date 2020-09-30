@@ -16,8 +16,8 @@ function PostData({ profilePic, image, username, timestamp, message }) {
         <Avatar src={profilePic} className="postData_avatar" />
         <div className="postData_topInfo">
           <h3>{username}</h3>
-          {/* <p>{new Date(timestamp?.toDate()).toUTCString()}</p> */}
-          <p>Timestamp..</p>
+          <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
+          {/* <p>Timestamp..</p> */}
         </div>
       </div>
 
