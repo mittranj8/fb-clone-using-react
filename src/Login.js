@@ -31,7 +31,7 @@ function Login() {
         />
       </div>
       <button type="submit" onClick={signIn}>
-        SignIn
+        SIGN IN
       </button>
     </div>
   );
