@@ -2,28 +2,30 @@ import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, PhotoLibrary, Videocam } from "@material-ui/icons";
 import React, { useState } from "react";
 import "./Post.css";
+import { useStateValue } from "./StateProvider";
 
 function Post() {
+  const [{ user }, dispatch] = useStateValue();
+
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // db code here
     setInput("");
     setImageUrl("");
   };
   return (
     <div className="post">
       <div className="post_top">
-        <Avatar src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-1/p480x480/107542672_3068672666558069_5787317240187801863_n.jpg?_nc_cat=111&_nc_sid=dbb9e7&_nc_ohc=ssbk47UKSyUAX9eajlL&_nc_ht=scontent-dfw5-1.xx&tp=6&oh=fbbb5fed2ef6a72aa19f2efbad1f073c&oe=5F98A43E" />
+        <Avatar src={user.photoURL} />
         <form action="">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             type="text"
-            placeholder={`What's on your mind?`}
+            placeholder={`What's on your mind, ${user.displayName}?`}
             className="post_input"
           />
           <input

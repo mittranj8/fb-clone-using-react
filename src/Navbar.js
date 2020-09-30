@@ -13,8 +13,10 @@ import {
   NotificationsActive,
 } from "@material-ui/icons";
 import { Avatar, IconButton } from "@material-ui/core";
+import { useStateValue } from "./StateProvider";
 
 function Navbar() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="navbar">
       {/* Navbar left section */}
@@ -51,8 +53,8 @@ function Navbar() {
       {/* Navbar right section */}
       <div className="navbar_profile">
         <div className="navbar_profile_av">
-          <Avatar src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-1/p480x480/107542672_3068672666558069_5787317240187801863_n.jpg?_nc_cat=111&_nc_sid=dbb9e7&_nc_ohc=ssbk47UKSyUAX9eajlL&_nc_ht=scontent-dfw5-1.xx&tp=6&oh=fbbb5fed2ef6a72aa19f2efbad1f073c&oe=5F98A43E" />
-          <h4>Mittranj Pansuriya</h4>
+          <Avatar src={user.photoURL} />
+          <h4>{user.displayName}</h4>
           <IconButton>
             <Add />
           </IconButton>
