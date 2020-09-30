@@ -11,7 +11,7 @@ function Feed() {
   // real-time connection to database
   useEffect(() => {
     db.collection("posts")
-      .orderBy("timestamp", "descending")
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         setPosts(
           snapshot.docs.map((doc) => ({

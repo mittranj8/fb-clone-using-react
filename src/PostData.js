@@ -26,7 +26,7 @@ function PostData({ profilePic, image, username, timestamp, message }) {
       </div>
 
       <div className="postData_image">
-        <img src={image} alt="post_image" />
+        <img src={image} alt="" />
       </div>
 
       <div className="postData_options">
